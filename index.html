@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ResellDreams</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+  color: #fff;
+  scroll-behavior: smooth;
+}
+
+/* Background zoomed-in */
+body {
+  background: url('hainasite.jpg') no-repeat center center / cover;
+  position: relative;
+}
+body::before {
+  content: '';
+  position: absolute;
+  top:0; left:0;
+  width: 100%; height: 100%;
+  backdrop-filter: blur(15px);
+  background-color: rgba(0,0,0,0.35);
+  z-index: 0;
+}
+
+/* Navbar extins și blur */
+header {
+  position: fixed;
+  top: 0; left:0;
+  width: 100%;
+  z-index: 20;
+  background-color: rgba(0,0,0,0.6);
+  backdrop-filter: blur(12px);
+  padding: 25px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+}
+
+header h1 {
+  font-size: 1.7rem;
+  margin: 0;
+  background: linear-gradient(45deg, #FFD700, #FFB700, #FFD700);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  font-weight: 800;
+  animation: gradientMove 6s ease-in-out infinite alternate;
+}
+
+/* Gradient animat */
+@keyframes gradientMove {
+  0% {background-position:0%;}
+  50% {background-position:100%;}
+  100% {background-position:0%;}
+}
+
+/* Tab Navigație */
+.nav-tab {
+  position: relative;
+}
+.nav-tab-button {
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(10px);
+  color: #FFD700;
+  font-weight: 700;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+.nav-tab-button:hover {
+  background: rgba(0,0,0,0.8);
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #FFD700;
+}
+
+.nav-tab-content {
+  position: absolute;
+  top: 45px;
+  right: 0;
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(12px);
+  border-radius: 10px;
+  overflow: hidden;
+  display: none;
+  flex-direction: column;
+  min-width: 180px;
+}
+.nav-tab-content a {
+  padding: 12px 15px;
+  color: #FFD700;
+  text-decoration: none;
+  display: block;
+  transition: background 0.3s;
+}
+.nav-tab-content a:hover {
+  background: rgba(255,215,0,0.2);
+  color: #fff;
+}
+
+/* Main content */
+main {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 120px 20px 100px 20px; /* padding top pentru header fix */
+}
+
+/* Text principal */
+main h2 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  font-weight: 700;
+  background: linear-gradient(45deg, #FFD700, #FFB700, #FFD700);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  animation: gradientMove 6s ease-in-out infinite alternate;
+}
+main h2 .exclusiv {
+  font-weight: 800;
+}
+
+main p {
+  font-size: 1.3rem;
+  max-width: 700px;
+  margin-bottom: 50px;
+}
+main p .profit, main p .resell {
+  background: linear-gradient(45deg, #FFD700, #FFB700, #FFD700);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  font-weight: 700;
+}
+
+/* Product Card */
+.product-card {
+  background: rgba(0,0,0,0.75);
+  border-radius: 15px;
+  padding: 35px;
+  max-width: 420px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+  margin-bottom: 80px;
+  transition: transform 0.3s ease;
+}
+.product-card:hover {
+  transform: translateY(-5px);
+}
+.product-card img {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 15px;
+}
+.product-card h3 {
+  font-size: 1.9rem;
+  margin-bottom: 15px;
+  color: #FFD700;
+}
+.product-card p {
+  font-size: 1.05rem;
+  margin-bottom: 25px;
+  line-height: 1.5;
+}
+
+/* Buy Button */
+.buy-button {
+  display: inline-block;
+  padding: 14px 30px;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #FFD700, #FFB700, #FFD700);
+  color: #000;
+  font-weight: 800;
+  text-decoration: none;
+  box-shadow: 0 0 25px rgba(255, 215, 0, 0.5);
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  overflow: hidden;
+}
+.buy-button::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 100%; height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.7), transparent);
+  transition: all 0.5s;
+}
+.buy-button:hover::before {
+  left: 100%;
+}
+.buy-button:hover {
+  transform: scale(1.07);
+  box-shadow: 0 0 35px rgba(255, 215, 0, 0.8);
+}
+
+/* De ce sa ne alegi */
+.why-section {
+  text-align: center;
+  margin-bottom: 60px;
+  max-width: 900px;
+}
+.why-section h3 {
+  font-size: 2.2rem;
+  margin-bottom: 30px;
+  color: #FFD700;
+  text-shadow: 0 0 10px rgba(255,215,0,0.7);
+}
+.why-card {
+  background: rgba(0,0,0,0.75);
+  padding: 25px;
+  border-radius: 15px;
+  max-width: 500px;
+  text-align: center;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+  margin: 20px auto;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.why-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(255,215,0,0.6);
+}
+.why-card h4 {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+  color: #FFD700;
+  font-weight: 700;
+  text-shadow: 0 0 8px rgba(255,215,0,0.6);
+}
+.why-card p {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Galerie verticala */
+.inspiration-section {
+  background: rgba(0,0,0,0.65);
+  backdrop-filter: blur(8px);
+  padding: 40px 20px;
+  border-radius: 15px;
+  max-width: 600px;
+  margin: 0 auto 80px auto;
+}
+.inspiration-item {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+.inspiration-item img {
+  width: 100%;
+  display: block;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.inspiration-item img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 30px rgba(255,215,0,0.6);
+}
+.inspiration-item span {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  color: #FFD700;
+  font-weight: 700;
+  text-shadow: 0 0 10px rgba(0,0,0,0.7);
+  font-size: 1.1rem;
+}
+
+/* Footer extins și blur */
+footer {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  padding: 40px 20px;
+  font-size: 12px;
+  color: #ccc;
+  background-color: rgba(0,0,0,0.6);
+  backdrop-filter: blur(12px);
+}
+
+footer .tiktok-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #FFD700;
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: all 0.3s ease-in-out;
+  text-shadow: 0 0 5px rgba(255,215,0,0.5);
+}
+
+footer .tiktok-link:hover {
+  color: #fff;
+  text-shadow: 0 0 15px rgba(255,215,0,1);
+  transform: scale(1.05);
+}
+
+footer .tiktok-link img {
+  width:30px;
+  height:30px;
+  transition: transform 0.3s, filter 0.3s;
+}
+
+footer .tiktok-link:hover img {
+  transform: scale(1.2);
+  filter: drop-shadow(0 0 10px #FFD700);
+}
+
+@media(max-width: 500px) {
+  main h2 { font-size: 2rem; }
+  main p { font-size: 1.1rem; }
+  .why-card { max-width: 90%; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>ResellDreams</h1>
+  <div class="nav-tab">
+    <button class="nav-tab-button" onclick="toggleNav()">☰ Meniu</button>
+    <div class="nav-tab-content" id="navContent">
+      <a href="#product-section">Linkul</a>
+      <a href="#why-section">De ce să ne alegi</a>
+      <a href="#inspiration-section">Rezultate reale</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <h2>Linkuri <span class="exclusiv">exclusive</span></h2>
+  <p>Crește-ți <span class="profit">profitul</span> în <span class="resell">resell</span> prin link-uri testate, produse foarte ieftine și 1:1</p>
+
+  <div id="product-section" class="product-card">
+    <img src="produs1.jpg" alt="Produs 1">
+    <h3>Cel mai bun vendor</h3>
+    <p>Accesează linkurile noastre verificate pentru cele mai recente drops de haine și sneakers. Garantăm livrare rapidă și profit maxim pentru fiecare client serios.</p>
+    <a href="https://www.paypal.com/ncp/payment/EXEMPLU_LINK" class="buy-button" target="_blank">Cumpără acum</a>
+  </div>
+
+  <div id="why-section" class="why-section">
+    <h3>De ce să ne alegi</h3>
+    <div class="why-card">
+      <h4>+100 Clienți mulțumiți</h4>
+      <p>Oferim doar linkuri verificate și de încredere pentru fiecare client.</p>
+    </div>
+    <div class="why-card">
+      <h4>Livrare instantă</h4>
+      <p>Primești linkul imediat după achiziție, fără întârzieri.</p>
+    </div>
+    <div class="why-card">
+      <h4>Profituri maxime atinse</h4>
+      <p>Linkurile noastre te ajută să crești profitul din resell la maximum.</p>
+    </div>
+  </div>
+
+  <div id="inspiration-section" class="inspiration-section">
+    <div class="inspiration">
+      <div class="inspiration-item">
+        <img src="insp1.jpg" alt="Rezultate reale">
+        <span>Rezultate reale</span>
+      </div>
+      <div class="inspiration-item">
+        <img src="insp2.jpg" alt="Profit maxim">
+        <span>Profit maxim</span>
+      </div>
+      <div class="inspiration-item">
+        <img src="insp3.jpg" alt="Clienți mulțumiți">
+        <span>Clienți mulțumiți</span>
+      </div>
+      <div class="inspiration-item">
+        <img src="insp4.jpg" alt="Experiențe reale">
+        <span>Experiențe reale</span>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  © 2025 ResellDreams. Toate drepturile rezervate.
+  <div style="margin-top:15px;">
+    <a href="https://www.tiktok.com/@1reselldreams?_r=1&_t=ZN-91JzqX500IA" target="_blank" class="tiktok-link">
+      <img src="tt.jpg" alt="TikTok">
+      @1reselldreams
+    </a>
+  </div>
+</footer>
+
+<script>
+function toggleNav() {
+  const nav = document.getElementById('navContent');
+  nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+  nav.style.flexDirection = 'column';
+}
+</script>
+
+</body>
+</html>
