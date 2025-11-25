@@ -137,6 +137,8 @@ main h2 .exclusiv {
 }
 
 main p {
+  
+
   font-size: 1.3rem;
   max-width: 700px;
   margin-bottom: 50px;
@@ -331,6 +333,56 @@ footer .tiktok-link:hover img {
   main p { font-size: 1.1rem; }
   .why-card { max-width: 90%; }
 }
+/* TITLURI GOLD FADE */
+.gold-title {
+  font-size: 1.7rem;
+  font-weight: 800;
+  margin-bottom: 15px;
+  background: linear-gradient(45deg, #FFD700, #FFB700, #FFD700);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientMove 6s ease-in-out infinite alternate;
+}
+
+/* SECTIUNE VALORI */
+.value-section {
+  margin-top: 50px;
+  margin-bottom: 70px;
+  text-align: center;
+  max-width: 900px;
+}
+
+.value-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 25px;
+}
+
+.value-item {
+  background: rgba(0,0,0,0.75);
+  border-radius: 15px;
+  padding: 25px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+.value-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(255,215,0,0.6);
+}
+
+.value-item img {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 15px;
+  filter: drop-shadow(0 0 5px #FFD700);
+}
+
+/* ICONA 4 MICȘORATĂ */
+.smaller-icon {
+  width: 45px !important;
+  height: 45px !important;
+}
+
 </style>
 </head>
 <body>
@@ -350,6 +402,37 @@ footer .tiktok-link:hover img {
 <main>
   <h2>Linkuri <span class="exclusiv">exclusive</span></h2>
   <p>Crește-ți <span class="profit">profitul</span> în <span class="resell">resell</span> prin link-uri testate, produse foarte ieftine și 1:1</p>
+
+<div class="value-section">
+  <h3 class="gold-title">Ce primești în pachet</h3>
+  <div class="value-grid">
+
+    <div class="value-item">
+      <img src="icon1.jpg" alt="">
+      <h4 class="gold-title">Linkuri 100% verificate</h4>
+      <p>Doar furnizori testați, fără riscuri, fără pierderi.</p>
+    </div>
+
+    <div class="value-item">
+      <img src="icon2.jpg" alt="">
+      <h4 class="gold-title">Produse foarte ieftine</h4>
+      <p>Prețuri sub piață pentru profit rapid.</p>
+    </div>
+
+    <div class="value-item">
+      <img src="icon3.jpg" alt="">
+      <h4 class="gold-title">Drops rare</h4>
+      <p>Acces la haine și sneakers greu de găsit.</p>
+    </div>
+
+    <div class="value-item">
+      <img src="icon4.jpg" alt="" class="smaller-icon">
+      <h4 class="gold-title">Suport instant</h4>
+      <p>Te ajutăm cu recomandări și setup.</p>
+    </div>
+
+  </div>
+</div>
 
   <div id="product-section" class="product-card">
     <img src="produs1.jpg" alt="Produs 1">
