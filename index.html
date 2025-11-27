@@ -5,6 +5,35 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ResellDreams</title>
 <style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap');
+
+.gold-btn {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    background: linear-gradient(45deg, #b8860b, #ffd700, #b8860b);
+    background-size: 200% 200%;
+    color: #1a1a1a;
+    border: none;
+    padding: 14px 28px;
+    font-size: 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    animation: fadeGold 3s infinite alternate;
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
+}
+
+.gold-btn:hover {
+    transform: scale(1.08);
+    background-position: right center;
+    box-shadow: 0 0 18px rgba(255, 215, 0, 0.8);
+    color: #000;
+}
+
+@keyframes fadeGold {
+    0% { opacity: 0.75; }
+    100% { opacity: 1; }
+}
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 
 body, html {
@@ -398,7 +427,10 @@ footer .tiktok-link:hover img {
     </div>
   </div>
 </header>
-
+<button class="gold-btn"
+        onclick="window.location.href='https://edi09popa-art.github.io/ResellDreamsEnglish/'">
+    Translate to English
+</button>
 <main>
   <h2>Linkuri <span class="exclusiv">exclusive</span></h2>
   <p>Crește-ți <span class="profit">profitul</span> în <span class="resell">resell</span> prin link-uri testate, produse foarte ieftine și 1:1</p>
