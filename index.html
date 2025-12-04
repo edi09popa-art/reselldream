@@ -509,19 +509,7 @@ footer .tiktok-link:hover img {
 
 </style>
 </head>
- <script>
-    function openLightbox(img) {
-        const lightbox = document.getElementById("lightbox");
-        const lightboxImg = document.getElementById("lightboxImg");
 
-        lightboxImg.src = img.src;
-        lightbox.style.display = "flex";
-    }
-
-    function closeLightbox() {
-        document.getElementById("lightbox").style.display = "none";
-    }
-</script>
 <body>
 
 <header>
@@ -653,6 +641,18 @@ function toggleNav() {
   nav.style.flexDirection = 'column';
 }
 </script>
+ <script>
+    function openLightbox(img) {
+        const lightbox = document.getElementById("lightbox");
+        const lightboxImg = document.getElementById("lightboxImg");
 
+        lightboxImg.src = img.src;
+        lightbox.style.display = "flex";
+    }
+
+    function closeLightbox() {
+        document.getElementById("lightbox").style.display = "none";
+    }
+</script>
 </body>
 </html>
