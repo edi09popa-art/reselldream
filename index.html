@@ -5,6 +5,42 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ResellDreams</title>
 <style>
+ /* Fundalul pentru zoom */
+.lightbox-bg {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  backdrop-filter: blur(4px);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+/* Imaginea mărită */
+.lightbox-img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 12px;
+  box-shadow: 0 0 25px rgba(255,215,0,0.6);
+  animation: zoomIn 0.25s ease;
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Cursor de mărire */
+.poze-grid img {
+  cursor: zoom-in;
+}
  .ce-cumperi {
   margin-top: 60px;
   text-align: center;
@@ -473,6 +509,19 @@ footer .tiktok-link:hover img {
 
 </style>
 </head>
+ <script>
+    function openLightbox(img) {
+        const lightbox = document.getElementById("lightbox");
+        const lightboxImg = document.getElementById("lightboxImg");
+
+        lightboxImg.src = img.src;
+        lightbox.style.display = "flex";
+    }
+
+    function closeLightbox() {
+        document.getElementById("lightbox").style.display = "none";
+    }
+</script>
 <body>
 
 <header>
@@ -539,6 +588,10 @@ footer .tiktok-link:hover img {
         <img src="pozaw2.jpg" alt="Produs 2">
         <img src="pozaw.jpg" alt="Produs 3" class="poza-jos">
     </div>
+</div>
+ <!-- Lightbox -->
+<div id="lightbox" class="lightbox-bg" onclick="closeLightbox()">
+    <img class="lightbox-img" id="lightboxImg">
 </div>
   <div id="why-section" class="why-section">
     <h3>De ce să ne alegi</h3>
