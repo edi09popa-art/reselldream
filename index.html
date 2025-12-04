@@ -5,6 +5,50 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ResellDreams</title>
 <style>
+ .ce-cumperi {
+  margin-top: 60px;
+  text-align: center;
+}
+
+.ce-cumperi h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #FFD700;
+  text-shadow: 0 0 10px rgba(255,215,0,0.7);
+}
+
+.poze-grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+/* primele două poze pe același rând */
+.poze-grid img:nth-child(1),
+.poze-grid img:nth-child(2) {
+  width: 150px;
+  height: auto;
+  border-radius: 10px;
+  display: inline-block;
+  margin: 0 8px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+}
+
+/* poza de jos */
+.poza-jos {
+  width: 150px;
+  border-radius: 10px;
+  margin-top: 5px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+}
+
+/* efect hover mic */
+.poze-grid img:hover {
+  transform: scale(1.05);
+  transition: 0.25s;
+  box-shadow: 0 0 15px rgba(255,215,0,0.7);
+}
  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap');
 
 .gold-btn {
@@ -487,7 +531,15 @@ footer .tiktok-link:hover img {
     <p>Accesează linkurile noastre verificate pentru cele mai recente drops de haine și sneakers. Garantăm livrare rapidă și profit maxim pentru fiecare client serios.</p>
     <a href="https://www.paypal.com/ncp/payment/U2A22G8YF83NC" class="buy-button" target="_blank">Cumpără acum</a>
   </div>
+<div class="ce-cumperi">
+    <h2>Ce cumperi</h2>
 
+    <div class="poze-grid">
+        <img src="pozaw3.jpg" alt="Produs 1">
+        <img src="pozaw2.jpg" alt="Produs 2">
+        <img src="pozaw.jpg" alt="Produs 3" class="poza-jos">
+    </div>
+</div>
   <div id="why-section" class="why-section">
     <h3>De ce să ne alegi</h3>
     <div class="why-card">
